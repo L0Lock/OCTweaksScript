@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.0
+// @version			1.0.1
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -20,6 +20,26 @@
 // Correction CSS barre de recherche
 $(".button--iconOnly").css({"padding":"0px","min-height":"28px","height":"28px"});
 $(".inputGroup__icon.icon-search").css({"margin-top":"6px"});
+
+// Copie du fil d'ariane en bas du sujet
+$(".breadcrumb").clone().insertAfter($("section.comments"));
+
+// Bouton afficher/masquer les épinglés
+if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
+$("h1").eq(1).after('<a href="#" title="Afficher/Masquer les sujets épinglés" id="hideShowPostIt" class="oc-mod-tooltip">Sujets épinglés</a>');
+if( !GM_getValue( "showPostIt" ) ) {
+    $("ul.list.clearfix").first().hide();
+}
+$("#hideShowPostIt").css({"color":"#d4451b","font-size":"0.8em"});
+$("#hideShowPostIt").click( function(e) {
+    if( GM_getValue( "showPostIt" ) ) {
+        $("ul.list.clearfix").first().hide();
+        GM_setValue( "showPostIt" , false );
+    } else {
+        $("ul.list.clearfix").first().show();
+        GM_setValue( "showPostIt" , true );
+    }
+});
 
 // Bouton top
 $("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
