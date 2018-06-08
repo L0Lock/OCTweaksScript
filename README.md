@@ -1,5 +1,3 @@
 # OCTweaksScript
 
-Script de teaks pour Openclassrooms
-
-
+Script de tweaks pour Openclassrooms
