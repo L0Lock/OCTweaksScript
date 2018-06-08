@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.1
+// @version			1.0.2
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -26,20 +26,22 @@ $(".breadcrumb").clone().insertAfter($("section.comments"));
 
 // Bouton afficher/masquer les épinglés
 if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
-$("h1").eq(1).after('<a href="#" title="Afficher/Masquer les sujets épinglés" id="hideShowPostIt" class="oc-mod-tooltip">Sujets épinglés</a>');
-if( !GM_getValue( "showPostIt" ) ) {
-    $("ul.list.clearfix").first().hide();
-}
-$("#hideShowPostIt").css({"color":"#d4451b","font-size":"0.8em"});
-$("#hideShowPostIt").click( function(e) {
-    if( GM_getValue( "showPostIt" ) ) {
+if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
+    $("h1").eq(1).after('<a href="#" title="Afficher/Masquer les sujets épinglés" id="hideShowPostIt" class="oc-mod-tooltip">Sujets épinglés</a>');
+    if( !GM_getValue( "showPostIt" ) ) {
         $("ul.list.clearfix").first().hide();
-        GM_setValue( "showPostIt" , false );
-    } else {
-        $("ul.list.clearfix").first().show();
-        GM_setValue( "showPostIt" , true );
     }
-});
+    $("#hideShowPostIt").css({"color":"#d4451b","font-size":"0.8em"});
+    $("#hideShowPostIt").click( function(e) {
+        if( GM_getValue( "showPostIt" ) ) {
+            $("ul.list.clearfix").first().hide();
+            GM_setValue( "showPostIt" , false );
+        } else {
+            $("ul.list.clearfix").first().show();
+            GM_setValue( "showPostIt" , true );
+        }
+    });
+}
 
 // Bouton top
 $("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
