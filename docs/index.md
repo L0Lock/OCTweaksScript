@@ -9,15 +9,15 @@ Il consiste en un ensemble de petites retouches de mise en forme et de fonctionn
 * Correction de largeur barre de recherche
 * etc.
 
-Le script est actuellement développé par les membres bénévoles du Staff d'Openclassrooms (alias les modérateurs forum). Il est codé en *Javascript* et son code source est disponnible sur [ce dépot Github](https://github.com/L0Lock/OCTweaksScript).
+Le script est actuellement développé par les membres bénévoles du Staff d'Openclassrooms (alias les modérateurs forum). Il est codé en *Javascript* et son code source est disponible sur [ce dépot Github](https://github.com/L0Lock/OCTweaksScript).
 
 ## Installation
 
-1. Intaller une extension d'userscript dans votre navigateur.
-Il existe [GreaseMonkey](https://addons.mozilla.org/fr/firefox/addon/greasemonkey/) (pour Firefox uniquement) ou de [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=fr). 
+1. Installer une extension d'userscript dans votre navigateur.
+Il existe [GreaseMonkey](https://addons.mozilla.org/fr/firefox/addon/greasemonkey/) (pour Firefox uniquement) ou TamperMonkey ([Tampermonkey pour Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=fr), [Tampermonkey pour Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)). 
 
-2. Ajouter le script à GreaseMonkey/TamperMonkey, le script à ajouter se trouve à [cette adresse](https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js).
-3. Se rendre sur [Openclassrooms.com](https://openclassrooms.com). L'extension devrait détecter l'exécution du script et vous demander confirmation avant de procéder. Si vous avez le choix entre accepter l'exécution du script "*une-seule fois*" ou "*indéfiniment*", il est recommandé de répondre "*indéfiniment*" afin de ne plus avoir à le refaire.
+2. Ajouter le script à GreaseMonkey/TamperMonkey, le script à ajouter se trouve à [cette adresse](https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js "lien vers le script OCTweaks").
+3. Se rendre sur [Openclassrooms.com](https://openclassrooms.com). L'extension devrait détecter l'exécution du script et vous demander confirmation avant de procéder. Si vous avez le choix entre accepter l'exécution du script "*une seule fois*" ou "*indéfiniment*", il est recommandé de répondre "*indéfiniment*" afin de ne plus avoir à le refaire.
 4. Enjoy !
 
 ## Contribuer
