@@ -44,13 +44,13 @@ if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf(
     function toggleList(list, button) {
         let buttonText;
         if (GM_getValue( "showPostIt" )) {
-            list.classList.add("hidden");
-            buttonText = "Afficher les sujets épinglés";
-            GM_setValue( "showPostIt" , false );
-        } else {
             list.classList.remove("hidden");
             buttonText = "Cacher les sujets épinglés";
             GM_setValue( "showPostIt" , false );
+        } else {
+            list.classList.add("hidden");
+            buttonText = "Afficher les sujets épinglés";
+            GM_setValue( "showPostIt" , true );
         }
         button.innerHTML = buttonText;
     }
