@@ -1,10 +1,8 @@
-# OC Tweaks Script
-
-OC Tweaks Script est un script utilisateur visant à améliorer l'utilisation quotidienne du [forum d'OpenClassrooms](https://openclassrooms.com/dashboard).
+OC Tweaks Script est un script utilisateur visant à améliorer l'utilisation quotidienne du [forum d'OpenClassrooms](https://openclassrooms.com/forum/).
 Il consiste en un ensemble de petites retouches de mise en forme et de fonctionnalités. Entre autres :
 
 * Masquage des sujets épinglés
-* Bouton de saut en haut / bas de page
+* Boutons de saut en haut / bas de page
 * Infobulles jQuery
 * Correction de largeur barre de recherche
 * etc.
