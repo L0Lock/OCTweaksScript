@@ -28,7 +28,7 @@
     $(".breadcrumb").clone().insertAfter($("section.comments"));
 
     // Bouton afficher/masquer les épinglés
-    if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
+    if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , false );
     if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
         let messagesLists = document.querySelectorAll(".list");
         messagesLists.forEach(function (list) {
@@ -40,20 +40,20 @@
                     toggleList(list, button);
                 });
                 list.parentNode.insertBefore(button, list);
-                toggleList(list, button);
+                toggleList(list, button, "hide");
             }
         });
 
-        function toggleList(list, button) {
+        function toggleList(list, button, forcedState) {
             let buttonText;
-            if (GM_getValue( "showPostIt" )) {
-                list.classList.remove("hidden");
-                buttonText = "Cacher les sujets épinglés";
-                GM_setValue( "showPostIt" , false );
-            } else {
+            if (forcedState === "hide" || !GM_getValue( "showPostIt" )) {
                 list.classList.add("hidden");
                 buttonText = "Afficher les sujets épinglés";
                 GM_setValue( "showPostIt" , true );
+            } else {
+                 list.classList.remove("hidden");
+                buttonText = "Cacher les sujets épinglés";
+                GM_setValue( "showPostIt" , false );
             }
             button.innerHTML = buttonText;
         }
