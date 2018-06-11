@@ -27,20 +27,33 @@ $(".breadcrumb").clone().insertAfter($("section.comments"));
 // Bouton afficher/masquer les épinglés
 if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
 if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
-    $("h1").eq(1).after('<a href="#" title="Afficher/Masquer les sujets épinglés" id="hideShowPostIt" class="oc-mod-tooltip">Sujets épinglés</a>');
-    if( !GM_getValue( "showPostIt" ) ) {
-        $("ul.list.clearfix").first().hide();
-    }
-    $("#hideShowPostIt").css({"color":"#d4451b","font-size":"0.8em"});
-    $("#hideShowPostIt").click( function(e) {
-        if( GM_getValue( "showPostIt" ) ) {
-            $("ul.list.clearfix").first().hide();
-            GM_setValue( "showPostIt" , false );
-        } else {
-            $("ul.list.clearfix").first().show();
-            GM_setValue( "showPostIt" , true );
+    let messagesLists = document.querySelectorAll(".list");
+    messagesLists.forEach(function (list) {
+        if (list.querySelectorAll(".postit").length > 0) {
+            let button = document.createElement("button");
+            button.classList.add("btn", "btn-primary");
+            button.style.marginBottom = "20px";
+            button.addEventListener("click", function () {
+                toggleList(list, button);
+            });
+            list.parentNode.insertBefore(button, list);
+            toggleList(list, button);
         }
     });
+
+    function toggleList(list, button) {
+        let buttonText;
+        if (GM_getValue( "showPostIt" )) {
+            list.classList.add("hidden");
+            buttonText = "Afficher les sujets épinglés";
+            GM_setValue( "showPostIt" , false );
+        } else {
+            list.classList.remove("hidden");
+            buttonText = "Cacher les sujets épinglés";
+            GM_setValue( "showPostIt" , false );
+        }
+        button.innerHTML = buttonText;
+    }
 }
 
 // Bouton top
