@@ -105,6 +105,9 @@
 			$("#oc-mod-bottom").hide();
 		}
 	});
+
+	// Eviter retour à la ligne boutons d'action
+	$(".actions>li>a").css({"font-size":"1rem"});
 	
 	// Suppression des pubs
 	$(".adviceBanner").remove();
