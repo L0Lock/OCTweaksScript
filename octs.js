@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.3
+// @version			1.0.4
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -18,108 +18,102 @@
 // ==/UserScript==
 
 (function($, document, undefined) {
-    'use strict';
+	'use strict';
+	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
+	
+	// Copie du fil d'ariane en bas du sujet
+	$(".breadcrumb").clone().insertAfter($("section.comments"));
+	
+	// Bouton afficher/masquer les épinglés
+	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
+	
+	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
+		$("h1").eq(1).prepend( '<img id="oc-mod-showhide" class="oc-mod-tooltip" />&nbsp;' );
+		$("#oc-mod-showhide").css({
+			"z-index":"3000",
+			"cursor":"pointer",
+			"height":"20px"
+		});
+		toggleTopics( {data : {stable: true}} );
 
-    // Correction CSS barre de recherche
-    $(".button--iconOnly").css({"padding":"0px","min-height":"28px","height":"28px"});
-    $(".inputGroup__icon.icon-search").css({"margin-top":"6px"});
+		function toggleTopics( event ) {
+			if( !event.data.stable ) {
+				GM_setValue( "showPostIt", !GM_getValue( "showPostIt" ) );
+			}
 
-    // Copie du fil d'ariane en bas du sujet
-    $(".breadcrumb").clone().insertAfter($("section.comments"));
+			var action = GM_getValue( "showPostIt" ) ? 'show' : 'hide';
+			var texte = GM_getValue( "showPostIt" ) ? 'Masquer' : 'Afficher';
+			var classe = GM_getValue( "showPostIt" ) ? 'block' : 'none';
 
-    // Bouton afficher/masquer les épinglés
-    if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , false );
-    if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
-        let messagesLists = document.querySelectorAll(".list");
-        messagesLists.forEach(function (list) {
-            if (list.querySelectorAll(".postit").length > 0) {
-                let button = document.createElement("button");
-                button.classList.add("btn", "btn-primary");
-                button.style.marginBottom = "20px";
-                button.addEventListener("click", function () {
-                    toggleList(list, button);
-                });
-                list.parentNode.insertBefore(button, list);
-                toggleList(list, button, "hide");
-            }
-        });
+			$(".list").first().css({"display":classe});
+			$("#oc-mod-showhide").attr( "src", gitUrl+action+'.png' );
+			$("#oc-mod-showhide").attr( "title", texte+" les sujets épinglés" );
+		};
 
-        function toggleList(list, button, forcedState) {
-            let buttonText;
-            if (forcedState === "hide" || !GM_getValue( "showPostIt" )) {
-                list.classList.add("hidden");
-                buttonText = "Afficher les sujets épinglés";
-                GM_setValue( "showPostIt" , true );
-            } else {
-                 list.classList.remove("hidden");
-                buttonText = "Cacher les sujets épinglés";
-                GM_setValue( "showPostIt" , false );
-            }
-            button.innerHTML = buttonText;
-        }
-    }
+		$("#oc-mod-showhide").click( {"stable":false}, toggleTopics );
+	}
+	
+	// Bouton top
+	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
+	if( $(window).scrollTop() < 100 ) {
+		$("#oc-mod-top").hide();
+	}
+	$("#oc-mod-top").click( () => {
+		$(window).scrollTop( 0 );
+	});
+	
+	// Bouton bottom
+	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
+	if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
+		$("#oc-mod-bottom").hide();
+	}
+	$("#oc-mod-bottom").click( () => {
+		$(window).scrollTop( $(document).height()-200 );
+	});
+	
+	// Style bouton top/bottom
+	$(".icon-next").css({"display":"inline-block"});
+	$(".oc-mod-nav").css({
+		"cursor":"pointer",
+		"position":"fixed",
+		"right":"50px",
+		"background":"#4f8a03",
+		"border-radius":"5px",
+		"color":"#fff"
+	});
+	$("#oc-mod-top").css({
+		"padding":"11px 15px 15px 15px",
+		"top":"38%"
+	});
+	$("#oc-mod-top>i").css({"transform":"rotate(-90deg)"});
+	$("#oc-mod-bottom").css({
+		"padding":"17px 15px 9px 15px",
+		"bottom":"38%"
+	});
+	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
+	
+	// Gestion du scroll
+	$(window).scroll( () => {
+		if( $(window).scrollTop() > 100 ) {
+			$("#oc-mod-top").show();
+		} else {
+			$("#oc-mod-top").hide();
+		}
+		if( $(window).height()+$(window).scrollTop() < $(document).height()-250 ) {
+			$("#oc-mod-bottom").show();
+		} else {
+			$("#oc-mod-bottom").hide();
+		}
+	});
+	
+	// Suppression des pubs
+	$(".adviceBanner").remove();
 
-    // Bouton top
-    $("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
-    if( $(window).scrollTop() < 100 ) {
-        $("#oc-mod-top").hide();
-    }
-    $("#oc-mod-top").click( () => {
-        $(window).scrollTop( 0 );
-    });
-
-    // Bouton bottom
-    $("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
-    if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
-        $("#oc-mod-bottom").hide();
-    }
-    $("#oc-mod-bottom").click( () => {
-        $(window).scrollTop( $(document).height()-200 );
-    });
-
-    // Style bouton top/bottom
-    $(".icon-next").css({"display":"inline-block"});
-    $(".oc-mod-nav").css({
-        "cursor":"pointer",
-        "position":"fixed",
-        "right":"50px",
-        "background":"#4f8a03",
-        "border-radius":"5px",
-        "color":"#fff"
-    });
-    $("#oc-mod-top").css({
-        "padding":"11px 15px 15px 15px",
-        "top":"38%"
-    });
-    $("#oc-mod-top>i").css({"transform":"rotate(-90deg)"});
-    $("#oc-mod-bottom").css({
-        "padding":"17px 15px 9px 15px",
-        "bottom":"38%"
-    });
-    $("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
-
-    // Gestion du scroll
-    $(window).scroll( () => {
-        if( $(window).scrollTop() > 100 ) {
-            $("#oc-mod-top").show();
-        } else {
-            $("#oc-mod-top").hide();
-        }
-        if( $(window).height()+$(window).scrollTop() < $(document).height()-250 ) {
-            $("#oc-mod-bottom").show();
-        } else {
-            $("#oc-mod-bottom").hide();
-        }
-    });
-
-    // Suppression des pubs
-    $(".adviceBanner").remove();
-
-    // Gestion des infobulles
-    $(".oc-mod-tooltip").tooltip( {
-        open: function( event, ui ) {
-            $(".ui-widget-shadow").css({"background":"#fff"});
-            $(".ui-widget-shadow").fadeTo(0,1);
-        }
-    });
+	// Gestion des infobulles
+	$(".oc-mod-tooltip").tooltip( {
+		open: function( event, ui ) {
+			$(".ui-widget-shadow").css({"background":"#fff"});
+			$(".ui-widget-shadow").fadeTo(0,1);
+		}
+	});
 })(window.jQuery, document);
