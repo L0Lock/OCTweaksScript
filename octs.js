@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.4
+// @version			1.0.5
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -108,9 +108,6 @@
 
 	// Eviter retour à la ligne boutons d'action
 	$(".actions>li>a").css({"font-size":"1rem"});
-	
-	// Suppression des pubs
-	$(".adviceBanner").remove();
 
 	// Gestion des infobulles
 	$(".oc-mod-tooltip").tooltip( {
@@ -119,4 +116,7 @@
 			$(".ui-widget-shadow").fadeTo(0,1);
 		}
 	});
+	
+	// Suppression des pubs
+	$(".adviceBanner").remove();
 })(window.jQuery, document);
