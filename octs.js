@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.6
+// @version			1.0.7
 // @noframes
 // @grant			GM.getValue
 // @grant			GM.setValue
@@ -24,6 +24,10 @@
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
+
+    // Lien règles forum
+    $(".nav-tabs--searchField").css( {"width": "50%"} );
+    $("#secondMenu li:eq(0)").before('<li><a href="https://openclassrooms.com/forum/sujet/regles-et-bonnes-pratiques-du-forum-9">Règles du forum</a></li>');
 
 	// Bouton afficher/masquer les épinglés
 	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
@@ -40,7 +44,11 @@
 
     function toggleTopics( event ) {
         GM.getValue("showPostIt").then( response => {
-            showPostIt = response;
+            if( response !== undefined ) {
+                showPostIt = response;
+            } else {
+                GM.setValue( "showPostIt", showPostIt );
+            }
 
             if( !event.data.stable ) {
                 GM.setValue( "showPostIt", !response );
