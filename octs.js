@@ -9,10 +9,10 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.0.5
+// @version			1.0.6
 // @noframes
-// @grant			GM_getValue
-// @grant			GM_setValue
+// @grant			GM.getValue
+// @grant			GM.setValue
 // @require			https://code.jquery.com/jquery-3.3.1.min.js
 // @require			https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
 // ==/UserScript==
@@ -20,39 +20,43 @@
 (function($, document, undefined) {
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
-	
+    var showPostIt = true;
+
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
-	
+
 	// Bouton afficher/masquer les épinglés
-	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
-	
 	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
-		$("h1").eq(1).prepend( '<img id="oc-mod-showhide" class="oc-mod-tooltip" />&nbsp;' );
-		$("#oc-mod-showhide").css({
-			"z-index":"3000",
-			"cursor":"pointer",
-			"height":"20px"
-		});
-		toggleTopics( {data : {stable: true}} );
+        $("h1").eq(1).prepend( '<img id="oc-mod-showhide" class="oc-mod-tooltip" />&nbsp;' );
+        $("#oc-mod-showhide").css({
+            "z-index":"3000",
+            "cursor":"pointer",
+            "height":"20px"
+        });
+        $("#oc-mod-showhide").click( {"stable":false}, toggleTopics );
 
-		function toggleTopics( event ) {
-			if( !event.data.stable ) {
-				GM_setValue( "showPostIt", !GM_getValue( "showPostIt" ) );
-			}
-
-			var action = GM_getValue( "showPostIt" ) ? 'show' : 'hide';
-			var texte = GM_getValue( "showPostIt" ) ? 'Masquer' : 'Afficher';
-			var classe = GM_getValue( "showPostIt" ) ? 'block' : 'none';
-
-			$(".list").first().css({"display":classe});
-			$("#oc-mod-showhide").attr( "src", gitUrl+action+'.png' );
-			$("#oc-mod-showhide").attr( "title", texte+" les sujets épinglés" );
-		};
-
-		$("#oc-mod-showhide").click( {"stable":false}, toggleTopics );
+        toggleTopics( {data : {stable: true}} );
 	}
-	
+
+    function toggleTopics( event ) {
+        GM.getValue("showPostIt").then( response => {
+            showPostIt = response;
+
+            if( !event.data.stable ) {
+                GM.setValue( "showPostIt", !response );
+                showPostIt = !response;
+            }
+
+            var action = showPostIt ? 'show' : 'hide';
+            var texte = showPostIt ? 'Masquer' : 'Afficher';
+            var classe = showPostIt ? 'block' : 'none';
+
+            $(".list").first().css({"display":classe});
+            $("#oc-mod-showhide").attr( "src", gitUrl+action+'.png' );
+            $("#oc-mod-showhide").attr( "title", texte+" les sujets épinglés" );
+        });
+    };
+
 	// Bouton top
 	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
 	if( $(window).scrollTop() < 100 ) {
@@ -61,7 +65,7 @@
 	$("#oc-mod-top").click( () => {
 		$(window).scrollTop( 0 );
 	});
-	
+
 	// Bouton bottom
 	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
 	if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
@@ -70,7 +74,7 @@
 	$("#oc-mod-bottom").click( () => {
 		$(window).scrollTop( $(document).height()-200 );
 	});
-	
+
 	// Style bouton top/bottom
 	$(".icon-next").css({"display":"inline-block"});
 	$(".oc-mod-nav").css({
@@ -91,7 +95,7 @@
 		"bottom":"38%"
 	});
 	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
-	
+
 	// Gestion du scroll
 	$(window).scroll( () => {
 		if( $(window).scrollTop() > 100 ) {
@@ -116,7 +120,7 @@
 			$(".ui-widget-shadow").fadeTo(0,1);
 		}
 	});
-	
+
 	// Suppression des pubs
 	$(".adviceBanner").remove();
 })(window.jQuery, document);
