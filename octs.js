@@ -28,7 +28,7 @@
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
 	
 	// Lien règles forum
-	$(".nav-tabs--searchField").css( {"width": "50%"} );
+	$(".nav-tabs--searchField").css( {"width": "40%"} );
 	$("#secondMenu li:eq(0)").before('<li><a href="https://openclassrooms.com/forum/sujet/regles-et-bonnes-pratiques-du-forum-9">Règles du forum</a></li>');
 	
 	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
