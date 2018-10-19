@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.1
+// @version			1.1.2
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -123,4 +123,7 @@
 	
 	// Suppression des pubs
 	$(".adviceBanner").remove();
+
+	// Replacement des bannières
+	$("#mainSection").prepend( $(".banner") );
 })(window.jQuery, document);
