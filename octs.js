@@ -9,10 +9,13 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.4
+// @version			1.1.5
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
+// @grant     GM_addStyle
+// @grant     GM_getResourceText
+// @resource	ocdark ocdark.css
 // @require			https://code.jquery.com/jquery-3.3.1.min.js
 // @require			https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
 // ==/UserScript==
@@ -21,11 +24,22 @@
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/";
 
-	//var link = window.document.createElement('link');
-	//link.rel = 'stylesheet';
-	//link.type = 'text/css';
-	//link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
-	//document.getElementsByTagName("HEAD")[0].appendChild(link);
+// DARK MODE
+
+	//	•••V3
+	var cssTxt  = GM_getResourceText ("ocdark");
+
+	GM_addStyle (cssTxt);
+
+	/*	•••V1
+	var link = window.document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
+	document.getElementsByTagName("HEAD")[0].appendChild(link);
+	*/
+
+	/*	•••V2
 	const css = [
                 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css',
             ];
@@ -45,7 +59,7 @@
                 link.href = css[i];
                 link.rel = 'stylesheet';
                 head.appendChild(link);
-            }
+            }*/
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
