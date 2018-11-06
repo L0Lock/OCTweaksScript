@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name			OC Tweak Script
+// @name			OC Tweak Script (Darmode branch)
 // @author			-L0Lock-, benzouye, Lamecarlate
 // @namespace   		https://github.com/L0Lock/OCTweaksScript
 // @description 		Améliore l'affichage des forums OpenClassrooms
