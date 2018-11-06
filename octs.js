@@ -15,7 +15,7 @@
 // @grant			GM_setValue
 // @grant     GM_addStyle
 // @grant     GM_getResourceText
-// @resource	ocdark_CSS ocdark.css
+// @resource	ocdark_CSS https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css
 // @require			https://code.jquery.com/jquery-3.3.1.min.js
 // @require			https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
 // ==/UserScript==
