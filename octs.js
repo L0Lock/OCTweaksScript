@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.4
+// @version			1.1.5
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -26,20 +26,31 @@
 
 // DARK MODE
 
-	//	•••V3
+	/* •••V4
+	function addStyleSheet(style){
+	  var getHead = document.getElementsByTagName("HEAD")[0];
+	  var cssNode = window.document.createElement( 'style' );
+	  var elementStyle= getHead.appendChild(cssNode);
+	  elementStyle.innerHTML = style;
+	  return elementStyle;
+	}
+
+	addStyleSheet('@import "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css";');
+	*/
+	•••V3
 	var cssTxt  = GM_getResourceText ("ocdark_CSS");
 
 	GM_addStyle (cssTxt);
 
-	/*	•••V1
+	/*
+	•••V1
 	var link = window.document.createElement('link');
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
 	link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
 	document.getElementsByTagName("HEAD")[0].appendChild(link);
-	*/
 
-	/*	•••V2
+	•••V2
 	const css = [
                 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css',
             ];
