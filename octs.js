@@ -21,11 +21,31 @@
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/";
 
-	var link = window.document.createElement('link');
-	link.rel = 'stylesheet';
-	link.type = 'text/css';
-	link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
-	document.getElementsByTagName("HEAD")[0].appendChild(link);
+	//var link = window.document.createElement('link');
+	//link.rel = 'stylesheet';
+	//link.type = 'text/css';
+	//link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
+	//document.getElementsByTagName("HEAD")[0].appendChild(link);
+	const css = [
+                'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css',
+            ];
+            function onComplette(){
+                $PME.startEditorLoader();
+            };
+            const head = document.getElementsByTagName('head')[0];
+            let total = javascript.length + css.length;
+            for (let i = 0, l = css.length; i < l; i++) {
+                let link = document.createElement('link');
+                link.onload = function() {
+                    total--;
+                    !total && onComplette();
+                  };
+               // link.async = false;
+                //tmp = link.cloneNode(true);
+                link.href = css[i];
+                link.rel = 'stylesheet';
+                head.appendChild(link);
+            }
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
