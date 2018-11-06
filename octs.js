@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name			OC Tweak Script
+// @name			OC Tweak Script (Darkmode branch)
 // @author			-L0Lock-, benzouye, Lamecarlate
-// @namespace   		https://github.com/L0Lock/OCTweaksScript
+// @namespace   		https://github.com/L0Lock/OCTweaksScript/tree/darkmode
 // @description 		Améliore l'affichage des forums OpenClassrooms
-// @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
-// @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
+// @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/octs.js
+// @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/octs.js
 // @include			*openclassrooms.com/forum/*
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.2
+// @version			1.1.3
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -19,18 +19,24 @@
 
 (function($, document, undefined) {
 	'use strict';
-	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
-	
+	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/";
+
+	var link = window.document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
+	document.getElementsByTagName("HEAD")[0].appendChild(link);
+
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
-	
+
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
-	
+
 	// Lien règles forum
 	$(".nav-tabs--searchField").css( {"width": "40%"} );
 	$("#secondMenu li:eq(0)").before('<li><a href="https://openclassrooms.com/forum/sujet/regles-et-bonnes-pratiques-du-forum-9">Règles du forum</a></li>');
-	
+
 	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
 		$("h1").eq(1).prepend( '<img id="oc-mod-showhide" class="oc-mod-tooltip" />&nbsp;' );
 		$("#oc-mod-showhide").css({
@@ -56,7 +62,7 @@
 
 		$("#oc-mod-showhide").click( {"stable":false}, toggleTopics );
 	}
-	
+
 	// Bouton top
 	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
 	if( $(window).scrollTop() < 100 ) {
@@ -65,7 +71,7 @@
 	$("#oc-mod-top").click( () => {
 		$(window).scrollTop( 0 );
 	});
-	
+
 	// Bouton bottom
 	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
 	if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
@@ -74,7 +80,7 @@
 	$("#oc-mod-bottom").click( () => {
 		$(window).scrollTop( $(document).height()-200 );
 	});
-	
+
 	// Style bouton top/bottom
 	$(".icon-next").css({"display":"inline-block"});
 	$(".oc-mod-nav").css({
@@ -95,7 +101,7 @@
 		"bottom":"38%"
 	});
 	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
-	
+
 	// Gestion du scroll
 	$(window).scroll( () => {
 		if( $(window).scrollTop() > 100 ) {
@@ -120,7 +126,7 @@
 			$(".ui-widget-shadow").fadeTo(0,1);
 		}
 	});
-	
+
 	// Suppression des pubs
 	$(".adviceBanner").remove();
 
