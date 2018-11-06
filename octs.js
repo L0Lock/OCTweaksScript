@@ -9,13 +9,13 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.5
+// @version			1.1.4
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
 // @grant     GM_addStyle
 // @grant     GM_getResourceText
-// @resource	ocdark ocdark.css
+// @resource	ocdark_CSS ocdark.css
 // @require			https://code.jquery.com/jquery-3.3.1.min.js
 // @require			https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
 // ==/UserScript==
@@ -27,7 +27,7 @@
 // DARK MODE
 
 	//	•••V3
-	var cssTxt  = GM_getResourceText ("ocdark");
+	var cssTxt  = GM_getResourceText ("ocdark_CSS");
 
 	GM_addStyle (cssTxt);
 
