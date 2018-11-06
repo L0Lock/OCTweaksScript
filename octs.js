@@ -5,10 +5,7 @@
 // @description 		Améliore l'affichage des forums OpenClassrooms
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
-// @include			*openclassrooms.com/forum/*
-// @include			*openclassrooms.com/mp/*
-// @include			*openclassrooms.com/interventions/*
-// @include			*openclassrooms.com/sujets/*
+// @include			*openclassrooms.com/*
 // @version			1.1.3
 // @noframes
 // @grant			GM_getValue
