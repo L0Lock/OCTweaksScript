@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name			OC Tweak Script (Darkmode branch)
+// @name			OC Tweak Script
 // @author			-L0Lock-, benzouye, Lamecarlate
-// @namespace   		https://github.com/L0Lock/OCTweaksScript/tree/darkmode
+// @namespace   		https://github.com/L0Lock/OCTweaksScript
 // @description 		Améliore l'affichage des forums OpenClassrooms
-// @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/octs.js
-// @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/octs.js
+// @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
+// @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/forum/*
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.5
+// @version			1.1.3
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -25,52 +25,8 @@
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/";
 
 // DARK MODE
-
-	/* •••V4
-	function addStyleSheet(style){
-	  var getHead = document.getElementsByTagName("HEAD")[0];
-	  var cssNode = window.document.createElement( 'style' );
-	  var elementStyle= getHead.appendChild(cssNode);
-	  elementStyle.innerHTML = style;
-	  return elementStyle;
-	}
-
-	addStyleSheet('@import "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css";');
-	*/
-	•••V3
 	var cssTxt  = GM_getResourceText ("ocdark_CSS");
-
 	GM_addStyle (cssTxt);
-
-	/*
-	•••V1
-	var link = window.document.createElement('link');
-	link.rel = 'stylesheet';
-	link.type = 'text/css';
-	link.href = 'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css';
-	document.getElementsByTagName("HEAD")[0].appendChild(link);
-
-	•••V2
-	const css = [
-                'https://raw.githubusercontent.com/L0Lock/OCTweaksScript/darkmode/ocdark.css',
-            ];
-            function onComplette(){
-                $PME.startEditorLoader();
-            };
-            const head = document.getElementsByTagName('head')[0];
-            let total = javascript.length + css.length;
-            for (let i = 0, l = css.length; i < l; i++) {
-                let link = document.createElement('link');
-                link.onload = function() {
-                    total--;
-                    !total && onComplette();
-                  };
-               // link.async = false;
-                //tmp = link.cloneNode(true);
-                link.href = css[i];
-                link.rel = 'stylesheet';
-                head.appendChild(link);
-            }*/
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
