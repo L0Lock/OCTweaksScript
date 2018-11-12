@@ -1,13 +1,294 @@
-body {
-  background-color: #202225;
-}
+/* === Corps de page === */
 
+html {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body {
+    color: hsl(0,0%,70%);
+}
 .oc-body main {
-  background-color: #202225;
+    background-color: hsl(0,0%,20%);
+}
+body {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body section {
+    border-top-color: hsl(0,0%,50%);
+}
+.main-section.alt-section,
+.grid-wrapper section.alt-section,
+.nav-tabs {
+    background: hsl(0,0%,50%);
+    color: hsl(0,0%,20%);
+}
+.main-section.alt-section,
+section.alt-section {
+    background: hsl(0,0%,50%);
+}
+.nav-tabs>li.active {
+    background: hsl(0,0%,40%);
+}
+.nav-tabs>li .item-label,
+.nav-tabs>li>a {
+    color: hsl(0,0%,70%);
+}
+.oc-body a {
+    color: hsl(0,0%,70%);
+}
+.secondTitle {
+    color: hsl(0,0%,70%);
 }
 
-/* Bouton search header */
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0,0%,70%);
+}
 
-.jss97 {
-  background-color: #202225;
+li,
+p {
+    color: hsl(0, 0%, 70%);
+}
+
+/* === Tête de page === */
+.jss94.jss94 {
+    background: hsl(0, 0%, 30%);
+}
+.mainHeader__avatar {
+    border-color: hsl(0, 0%, 70%);
+}
+
+/* === Panneau d'infos === */
+.infoPanel {
+    background: linear-gradient(hsl(0,0%,25%) 0,hsl(0,0%,35%) 40%,hsl(0,0%,45%) 100%);
+    border: 1px solid hsl(0,0%,25%);
+
+}
+.infoPanel__description {
+    color: hsl(0,0%,70%);
+}
+
+/* === Table Dashboard === */
+.dashboardTable {
+    color: hsla(0,0%,70%,1);
+    border-color: hsl(0, 0%, 70%);
+}
+.dashboardTable tr:nth-child(odd) {
+    background-color: hsl(0,0%,30%);
+}
+.dashboardTable .dashboardTable__link {
+    color: hsl(0,0%,70%);
+}
+
+/* === Pied de page === */
+.oc-footer__lastBlock .oc-footer__itemTitle,
+.oc-footer__item .oc-footer__itemTitle {
+    color: hsl(0,0%,70%);
+}
+
+/* =======================
+*  FORUM
+*  =======================
+*/
+section#mainContent section#mainSection {
+    background: hsl(0, 0%, 25%)!important;
+}
+/* === Corps de page === */
+
+html {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body main {
+    background-color: hsl(0,0%,20%);
+}
+body {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body section {
+    border-top-color: hsl(0,0%,50%);
+}
+.main-section.alt-section,
+.grid-wrapper section.alt-section,
+.nav-tabs {
+    background: hsl(0,0%,50%);
+    color: hsl(0,0%,20%);
+}
+.main-section.alt-section,
+section.alt-section {
+    background: hsl(0,0%,50%);
+}
+.nav-tabs>li.active {
+    background: hsl(0,0%,40%);
+}
+.nav-tabs>li .item-label,
+.nav-tabs>li>a {
+    color: hsl(0,0%,70%);
+}
+.oc-body a {
+    color: hsl(0,0%,70%);
+}
+.secondTitle {
+    color: hsl(0,0%,70%);
+}
+
+h1,h2, h3, h4, h5, h6 {
+    color: hsl(0,0%,70%);
+}
+
+li,
+p {
+    color: hsl(0, 0%, 70%);
+}
+
+/* === Tête de page === */
+.jss94.jss94 {
+    background: hsl(0, 0%, 30%);
+}
+.mainHeader__avatar {
+    border-color: hsl(0, 0%, 70%);
+}
+
+/* === Panneau d'infos === */
+.infoPanel {
+    background: linear-gradient(hsl(0,0%,25%) 0,hsl(0,0%,35%) 40%,hsl(0,0%,45%) 100%);
+    border: 1px solid hsl(0,0%,25%);
+
+}
+.infoPanel__description {
+    color: hsl(0,0%,70%);
+}
+
+/* === Table Dashboard === */
+.dashboardTable {
+    color: hsla(0,0%,70%,1);
+    border-color: hsl(0, 0%, 70%);
+}
+.dashboardTable tr:nth-child(odd) {
+    background-color: hsl(0,0%,30%);
+}
+.dashboardTable .dashboardTable__link {
+    color: hsl(0,0%,70%);
+}
+
+/* === Pied de page === */
+.oc-footer__lastBlock .oc-footer__itemTitle,
+.oc-footer__item .oc-footer__itemTitle {
+    color: hsl(0,0%,70%);
+}
+
+/* =======================
+*  FORUM
+*  =======================
+*/
+section#mainContent section#mainSection {
+    background: hsl(0, 0%, 25%)!important;
+}
+/* === Corps de page === */
+
+html {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body main {
+    background-color: hsl(0,0%,20%);
+}
+body {
+    background-color: hsl(0,0%,20%);
+}
+.oc-body section {
+    border-top-color: hsl(0,0%,50%);
+}
+.main-section.alt-section,
+.grid-wrapper section.alt-section,
+.nav-tabs {
+    background: hsl(0,0%,50%);
+    color: hsl(0,0%,20%);
+}
+.main-section.alt-section,
+section.alt-section {
+    background: hsl(0,0%,50%);
+}
+.nav-tabs>li.active {
+    background: hsl(0,0%,40%);
+}
+.nav-tabs>li .item-label,
+.nav-tabs>li>a {
+    color: hsl(0,0%,70%);
+}
+.oc-body a {
+    color: hsl(0,0%,70%);
+}
+.secondTitle {
+    color: hsl(0,0%,70%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0,0%,70%);
+}
+
+li, p {
+    color: hsl(0, 0%, 70%);
+}
+
+/* === Tête de page === */
+.jss94.jss94 {
+    background: hsl(0, 0%, 30%);
+}
+.mainHeader__avatar {
+    border-color: hsl(0, 0%, 70%);
+}
+
+/* === Panneau d'infos === */
+.infoPanel {
+    background: linear-gradient(hsl(0,0%,25%) 0,hsl(0,0%,35%) 40%,hsl(0,0%,45%) 100%);
+    border: 1px solid hsl(0,0%,25%);
+
+}
+.infoPanel__description {
+    color: hsl(0,0%,70%);
+}
+
+/* === Table Dashboard === */
+.dashboardTable {
+    color: hsla(0,0%,70%,1);
+    border-color: hsl(0, 0%, 70%);
+}
+.dashboardTable tr:nth-child(odd) {
+    background-color: hsl(0,0%,30%);
+}
+.dashboardTable .dashboardTable__link {
+    color: hsl(0,0%,70%);
+}
+
+/* === Pied de page === */
+.oc-footer__lastBlock .oc-footer__itemTitle,
+.oc-footer__item .oc-footer__itemTitle {
+    color: hsl(0,0%,70%);
+}
+
+/* =======================
+*  FORUM
+*  =======================
+*/
+section#mainContent section#mainSection {
+    background: hsl(0, 0%, 20%)!important;
+}
+section#mainContent .comments .row:nth-child(even) {
+    background: hsl(0, 0%, 35%)!important;
+}
+section#mainContent h1 a {
+    color: hsl(0,0%,70%);
+    text-decoration: none;
+}
+section#mainContent section.comments div.row div.avatar-oc .author a {
+    color: hsl(0,0%,70%);
+}
+section#mainContent div.comment a.date {
+    color: hsl(0,0%,70%);
+}
+section#mainContent ul.actions a {
+    color: hsl(0,0%,70%);
+}
+.voteButton {
+    background:hsl(0,0%,88%);
+}
+table#Comment_wysiwyg_message_formatselect {
+    background-color: hsl(0,0%,50%)
 }
