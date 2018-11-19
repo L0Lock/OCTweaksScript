@@ -9,7 +9,7 @@
 // @include			*openclassrooms.com/mp/*
 // @include			*openclassrooms.com/interventions/*
 // @include			*openclassrooms.com/sujets/*
-// @version			1.1.2
+// @version			1.1.3
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -20,6 +20,9 @@
 (function($, document, undefined) {
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
+	
+	// Rattrapage police Aileron
+	$('*, button, input, select, textarea').css( {"font-family":"Aileron, sans-serif" });
 	
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
