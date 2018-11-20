@@ -5,11 +5,8 @@
 // @description 		Améliore l'affichage des forums OpenClassrooms
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
-// @include			*openclassrooms.com/forum/*
-// @include			*openclassrooms.com/mp/*
-// @include			*openclassrooms.com/interventions/*
-// @include			*openclassrooms.com/sujets/*
-// @version			1.1.3
+// @include			*openclassrooms.com/*
+// @version			1.2
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -26,6 +23,9 @@
 	
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
+
+	// Ajout bouton forum entête
+	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forums</a></li>');
 	
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
