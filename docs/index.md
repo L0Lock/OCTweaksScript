@@ -1,11 +1,14 @@
 OC Tweaks Script est un script utilisateur visant à améliorer l'utilisation quotidienne du [forum d'OpenClassrooms](https://openclassrooms.com/forum/).
 Il consiste en un ensemble de petites retouches de mise en forme et de fonctionnalités. Entre autres :
 
-* Masquage des sujets épinglés;
-* Boutons de saut en haut / bas de page;
-* Infobulles jQuery;
-* Correction de largeur barre de recherche;
-* masquage du bandeau de pub dans les sujets du form;
+* Option de masquage des sujets épinglés ;
+* Boutons de saut en haut / bas de page ;
+* Infobulles jQuery ;
+* Correction de largeur de la barre de recherche ;
+* Correction du positionnement des sujets fermés ;
+* Correction police Aileron ;
+* Masquage du bandeau de pub dans les sujets du form ;
+* Ajout du lien "Forum" dans le menu principal ;
 * etc.
 
 Le script est actuellement développé par les membres bénévoles du Staff d'Openclassrooms (alias les modérateurs forum). Il est codé en *Javascript* et son code source est disponible sur [ce dépot Github](https://github.com/L0Lock/OCTweaksScript).
