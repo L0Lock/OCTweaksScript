@@ -95,6 +95,34 @@
 	});
 	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
 
+	// Style bouton principal
+	$(".btn-primary").css({
+		"color": "#fff!important",
+    "border": "none",
+    "background-clip": "padding-box",
+    "border-radius": "0px",
+    "-moz-border-radius": "0px",
+    "-webkit-border-radius": "0px",
+    "box-shadow": "none",
+    "background-color": "#7451EB",
+    "border-bottom": "3px solid rgba(0,0,0,.25)",
+    "background-image": "none",
+    "text-shadow": "none"
+	});
+	$(".btn-primary:hover").css({
+		"color": "#fff!important",
+    "border": "none",
+    "background-clip": "padding-box",
+    "border-radius": "0px",
+    "-moz-border-radius": "0px",
+    "-webkit-border-radius": "0px",
+    "box-shadow": "none",
+    "background-color": "#3E45D4",
+    "border-bottom": "3px solid rgba(0,0,0,.75)",
+    "background-image": "none",
+    "text-shadow": "none"
+	});
+
 	// Gestion du scroll
 	$(window).scroll( () => {
 		if( $(window).scrollTop() > 100 ) {
