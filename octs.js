@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.3
+// @version			1.2.4
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -20,6 +20,10 @@
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
+
+    // Retrait vieux CSS pour nouveau
+    $(".btn.btn-primary").addClass("button--primary");
+    $(".btn.btn-primary").removeClass("btn btn-primary");
 
 	// Ajout bouton forum entête
 	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forums</a></li>');
@@ -58,7 +62,7 @@
 	}
 
 	// Bouton top
-	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
+	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav button--primary" id="oc-mod-top"><i class="icon-next"></i></span>');
 	if( $(window).scrollTop() < 100 ) {
 		$("#oc-mod-top").hide();
 	}
@@ -67,7 +71,7 @@
 	});
 
 	// Bouton bottom
-	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
+	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav button--primary" id="oc-mod-bottom"><i class="icon-next"></i></span>');
 	if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
 		$("#oc-mod-bottom").hide();
 	}
@@ -80,49 +84,16 @@
 	$(".oc-mod-nav").css({
 		"cursor":"pointer",
 		"position":"fixed",
-		"right":"50px",
-		"background":"#497EF6",
-    "border-bottom": "3px solid rgba(0,0,0,.25)",
-		"color":"#fff"
+		"right":"50px"
 	});
 	$("#oc-mod-top").css({
-		"padding":"11px 15px 15px 15px",
 		"top":"38%"
 	});
 	$("#oc-mod-top>i").css({"transform":"rotate(-90deg)"});
 	$("#oc-mod-bottom").css({
-		"padding":"17px 15px 9px 15px",
 		"bottom":"38%"
 	});
 	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
-
-	// Style bouton principal
-	$(".btn-primary").css({
-		"color": "#fff!important",
-    "border": "none",
-    "background-clip": "padding-box",
-    "border-radius": "0px",
-    "-moz-border-radius": "0px",
-    "-webkit-border-radius": "0px",
-    "box-shadow": "none",
-    "background-color": "#7451EB",
-    "border-bottom": "3px solid rgba(0,0,0,.25)",
-    "background-image": "none",
-    "text-shadow": "none"
-	});
-	$(".btn-primary:hover").css({
-		"color": "#fff!important",
-    "border": "none",
-    "background-clip": "padding-box",
-    "border-radius": "0px",
-    "-moz-border-radius": "0px",
-    "-webkit-border-radius": "0px",
-    "box-shadow": "none",
-    "background-color": "#3E45D4",
-    "border-bottom": "3px solid rgba(0,0,0,.75)",
-    "background-image": "none",
-    "text-shadow": "none"
-	});
 
 	// Gestion du scroll
 	$(window).scroll( () => {
