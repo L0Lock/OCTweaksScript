@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.1
+// @version			1.2.2
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -17,20 +17,20 @@
 (function($, document, undefined) {
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
-	
+
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
 
 	// Ajout bouton forum entête
 	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forums</a></li>');
-	
+
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
-	
+
 	// Lien règles forum
 	$(".nav-tabs--searchField").css( {"width": "40%"} );
 	$("#secondMenu li:eq(0)").before('<li><a href="https://openclassrooms.com/forum/sujet/regles-et-bonnes-pratiques-du-forum-9">Règles du forum</a></li>');
-	
+
 	if( window.location.href.indexOf( "forum" ) > 0 && window.location.href.indexOf( "sujet" ) <= 0 ) {
 		$("h1").eq(1).prepend( '<img id="oc-mod-showhide" class="oc-mod-tooltip" />&nbsp;' );
 		$("#oc-mod-showhide").css({
@@ -56,7 +56,7 @@
 
 		$("#oc-mod-showhide").click( {"stable":false}, toggleTopics );
 	}
-	
+
 	// Bouton top
 	$("#mainContentWithHeader").append('<span title="Haut de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-top"><i class="icon-next"></i></span>');
 	if( $(window).scrollTop() < 100 ) {
@@ -65,7 +65,7 @@
 	$("#oc-mod-top").click( () => {
 		$(window).scrollTop( 0 );
 	});
-	
+
 	// Bouton bottom
 	$("#mainContentWithHeader").append('<span title="Bas de la page" class="oc-mod-tooltip oc-mod-nav" id="oc-mod-bottom"><i class="icon-next"></i></span>');
 	if( $(window).height()+$(window).scrollTop() > $(document).height()-250 ) {
@@ -74,15 +74,14 @@
 	$("#oc-mod-bottom").click( () => {
 		$(window).scrollTop( $(document).height()-200 );
 	});
-	
+
 	// Style bouton top/bottom
 	$(".icon-next").css({"display":"inline-block"});
 	$(".oc-mod-nav").css({
 		"cursor":"pointer",
 		"position":"fixed",
 		"right":"50px",
-		"background":"#4f8a03",
-		"border-radius":"5px",
+		"background":"#497EF6",
 		"color":"#fff"
 	});
 	$("#oc-mod-top").css({
@@ -95,7 +94,7 @@
 		"bottom":"38%"
 	});
 	$("#oc-mod-bottom>i").css({"transform":"rotate(90deg)"});
-	
+
 	// Gestion du scroll
 	$(window).scroll( () => {
 		if( $(window).scrollTop() > 100 ) {
@@ -120,7 +119,7 @@
 			$(".ui-widget-shadow").fadeTo(0,1);
 		}
 	});
-	
+
 	// Suppression des pubs
 	$(".adviceBanner").remove();
 
