@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.2
+// @version			1.2.3
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -82,6 +82,7 @@
 		"position":"fixed",
 		"right":"50px",
 		"background":"#497EF6",
+    "border-bottom": "3px solid rgba(0,0,0,.25)",
 		"color":"#fff"
 	});
 	$("#oc-mod-top").css({
