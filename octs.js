@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.4
+// @version			1.2.5
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -26,7 +26,7 @@
     $(".btn.btn-primary").removeClass("btn btn-primary");
 
 	// Ajout bouton forum entête
-	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forums</a></li>');
+	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forum</a></li>');
 
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
