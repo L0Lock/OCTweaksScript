@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.5
+// @version			1.2.6
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -21,9 +21,15 @@
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
 
-    // Retrait vieux CSS pour nouveau
-    $(".btn.btn-primary").addClass("button--primary");
-    $(".btn.btn-primary").removeClass("btn btn-primary");
+	// Retrait vieux CSS pour nouveau
+	$(".btn.btn-primary").addClass("button--primary");
+	$(".btn.btn-primary").removeClass("btn btn-primary");
+	$(".btn").addClass("button--secondary");
+	$(".btn").removeClass("btn");
+
+	// Eviter le routour chariot au survol messages
+	$(".span10").css("width","89%");
+	$('.actions>li>a').css("font-size","0.8rem");
 
 	// Ajout bouton forum entête
 	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer"><a class="mainTopNav__item" href="/forum">Forum</a></li>');
@@ -108,9 +114,6 @@
 			$("#oc-mod-bottom").hide();
 		}
 	});
-
-	// Eviter retour à la ligne boutons d'action
-	$(".actions>li>a").css({"font-size":"1rem"});
 
 	// Gestion des infobulles
 	$(".oc-mod-tooltip").tooltip( {
