@@ -21,11 +21,14 @@
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
 
-    // Suppression des div span1
-    $(".cellsCentred.span1").remove();
+    	// Suppression des div span1
+	$(".cellsCentred.span1").remove();
+	$(".cellsLink.span5").width("40%");
+	$(".cellsCentred.span2").width("20%");
+	$(".cellsLink.span3").width("30%");
 
-    // Largeur des messages
-    $(".grid-inner-content").css({"max-width":"100%"});
+	// Largeur des messages
+	$(".grid-inner-content").css({"max-width":"100%"});
 
 	// Retrait vieux CSS pour nouveau
 	$(".btn.btn-primary").addClass("button--primary");
