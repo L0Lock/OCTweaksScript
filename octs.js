@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.11
+// @version			1.2.12
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -29,6 +29,9 @@
 
 	// Largeur des messages
 	$(".grid-inner-content").css({"max-width":"100%"});
+
+	// Largeur menu avatar
+	$(".popOut__content").css({"min-width":"210px"});
 
 	// Retrait vieux CSS pour nouveau
 	$(".btn.btn-primary").addClass("button--primary");
