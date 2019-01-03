@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.12
+// @version			1.2.13
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -20,6 +20,9 @@
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
+
+	// Taille police signature
+	$(".signature, .signature p").css({"font-size":"0.7rem"});
 
     	// Suppression des div span1
 	$(".cellsCentred.span1").remove();
