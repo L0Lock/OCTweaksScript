@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.13
+// @version			1.2.14
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -23,6 +23,9 @@
 
 	// Taille police signature
 	$(".signature, .signature p").css({"font-size":"0.7rem"});
+	
+	// Forcer affichage lien modération
+	$(".actions").show();
 
     	// Suppression des div span1
 	$(".cellsCentred.span1").remove();
