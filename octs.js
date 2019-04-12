@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.14
+// @version			1.2.15
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -21,33 +21,14 @@
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
 
-	// Taille police signature
-	$(".signature, .signature p").css({"font-size":"0.7rem"});
-	
 	// Forcer affichage lien modération
 	$(".actions").show();
-
-    	// Suppression des div span1
-	$(".cellsCentred.span1").remove();
-	$(".cellsLink.span5").width("40%");
-	$(".cellsCentred.span2").width("20%");
-	$(".cellsLink.span3").width("30%");
-
-	// Largeur des messages
-	$(".grid-inner-content").css({"max-width":"100%"});
-
-	// Largeur menu avatar
-	$(".popOut__content").css({"min-width":"210px"});
 
 	// Retrait vieux CSS pour nouveau
 	$(".btn.btn-primary").addClass("button--primary");
 	$(".btn.btn-primary").removeClass("btn btn-primary");
 	$(".btn").addClass("button--secondary");
 	$(".btn").removeClass("btn");
-
-	// Eviter le routour chariot au survol messages
-	$(".span10").css("width","89%");
-	$('.actions>li>a').css("font-size","0.8rem");
 
 	// Ajout bouton forum entête
 	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer button--forum"><a class="mainTopNav__item" href="/forum">Forum</a></li>');
@@ -147,7 +128,4 @@
 
 	// Suppression des pubs
 	$(".adviceBanner").remove();
-
-	// Replacement des bannières
-	$("#mainSection").prepend( $(".banner") );
 })(window.jQuery, document);
