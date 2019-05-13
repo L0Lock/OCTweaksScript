@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.15
+// @version			1.2.16
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -23,6 +23,9 @@
 
 	// Forcer affichage lien modération
 	$(".actions").show();
+	$(".comments").mouseout( function(e) {
+		$(".actions").show();
+	});
 
 	// Retrait vieux CSS pour nouveau
 	$(".btn.btn-primary").addClass("button--primary");
