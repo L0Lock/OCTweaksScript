@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.16
+// @version			1.2.17
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -17,6 +17,11 @@
 (function($, document, undefined) {
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
+	
+  	// Réparation lien ancre cassé
+  	if( window.location.href.indexOf("#") > 0 ) {
+ 	     window.location.href = window.location.href.replace( "#", "#message-" );
+   	}
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
