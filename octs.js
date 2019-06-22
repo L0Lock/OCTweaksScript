@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name			OC Tweak Script
-// @author			-L0Lock-, benzouye, Lamecarlate
+// @author			-L0Lock-, benzouye, Lamecarlate, Lucatorze
 // @namespace   		https://github.com/L0Lock/OCTweaksScript
 // @description 		Améliore l'affichage des forums OpenClassrooms
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.17
+// @version			1.2.18
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -17,10 +17,31 @@
 (function($, document, undefined) {
 	'use strict';
 	const gitUrl = "https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/";
-	
+	const baseUrl = "https://openclassrooms.com/";
+	const forumUrl = baseUrl+"forum/";
+	const catUrl = forumUrl+"categorie/";
+
+	// Ajout lien sections sur liste forum
+	if( window.location.href === forumUrl ) {
+		var sections = {
+			'Site Web': 'site-web',
+			'Entreprise': 'entreprise',
+			'Programmation': 'programmation',
+			'Systèmes d\'exploitation': 'systemes-d-exploitation',
+			'Design': 'design',
+			'Matériel & logiciels': 'materiel-logiciels',
+			'Jeux vidéo': 'jeux-video',
+			'Sciences': 'sciences',
+			'Communauté des Zéros': 'communaute-des-zeros'
+		};
+		$('h2').each( function(i) {
+			$(this).html( '<a href="'+catUrl+sections[$(this).text()]+'">'+$(this).text()+'</a>' );
+		});
+	}
+
   	// Réparation lien ancre cassé
   	if( window.location.href.indexOf("#") > 0 ) {
- 	     window.location.href = window.location.href.replace( "#", "#message-" );
+ 		 window.location.href = window.location.href.replace( "#", "#message-" );
    	}
 
 	// Copie du fil d'ariane en bas du sujet
