@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.18
+// @version			1.2.19
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -35,7 +35,7 @@
 			'Communauté des Zéros': 'communaute-des-zeros'
 		};
 		$('h2').each( function(i) {
-			$(this).html( '<a href="'+catUrl+sections[$(this).text()]+'">'+$(this).text()+'</a>' );
+			$(this).html( '<a title="Accès au sommaire de la catégorie '+$(this).text()+'" href="'+catUrl+sections[$(this).text()]+'">'+$(this).text()+'</a>' );
 		});
 	}
 
