@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.19
+// @version			1.2.20
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -60,11 +60,20 @@
 	$(".btn").removeClass("btn");
 
 	// Ajout bouton forum entête
-	$(".mainTopNav").prepend('<li class="mainTopNav__itemContainer button--forum"><a class="mainTopNav__item" href="/forum">Forum</a></li>');
+    let classActiveBouton = "";
 	if( window.location.pathname.indexOf('/forum/') !== -1 ) {
-		$(".button--forum").css({"border-bottom":"3px solid #7451eb"});
-		$(".button--forum>a").css({"color":"#7451eb"});
+		classActiveBouton = "oc-mainHeader__navLinkActive";
 	};
+	var observer = new MutationObserver( function(mutations) {
+		mutations.forEach(function(mutation) {
+			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
+				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("oc-mainHeader") ) {
+					$(".oc-mainHeader__linksWrapper").prepend('<div class="oc-mainHeader__navLinkWrapper"><span class="jss180 jss189"><a class="jss217 oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
+				}
+			}
+		});
+	});
+	observer.observe( document.body, { childList: true, subtree: true } );
 
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
@@ -154,6 +163,21 @@
 			$(".ui-widget-shadow").fadeTo(0,1);
 		}
 	});
+
+    // Balise kbd
+    $("kbd").css({
+        "background-color":"#eee",
+        "border-radius": "3px",
+        "border": "1px solid #b4b4b4",
+        "box-shadow": "0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset",
+        "color": "#333",
+        "display": "inline-block",
+        "font-size": ".85em",
+        "font-weight": 700,
+        "line-height": 1,
+        "padding": "2px 4px",
+        "white-space": "nowrap"
+   });
 
 	// Suppression des pubs
 	$(".adviceBanner").remove();
