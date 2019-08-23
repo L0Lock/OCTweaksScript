@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.21
+// @version			1.2.22
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -40,7 +40,7 @@
 	}
 
   	// Réparation ancre vers message cassée
-  	if( window.location.href.indexOf("#") > 0 && window.location.href.indexOf("#message-") == 0 ) {
+  	if( window.location.href.indexOf("#") > 0 && window.location.href.indexOf("#message-") == -1 ) {
  		 window.location.href = window.location.href.replace( "#", "#message-" );
    	}
 
