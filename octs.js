@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.20
+// @version			1.2.21
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -39,8 +39,8 @@
 		});
 	}
 
-  	// Réparation lien ancre cassé
-  	if( window.location.href.indexOf("#") > 0 ) {
+  	// Réparation ancre vers message cassée
+  	if( window.location.href.indexOf("#") > 0 && window.location.href.indexOf("#message-") == 0 ) {
  		 window.location.href = window.location.href.replace( "#", "#message-" );
    	}
 
@@ -68,7 +68,7 @@
 		mutations.forEach(function(mutation) {
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
 				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("oc-mainHeader") ) {
-					$(".oc-mainHeader__linksWrapper").prepend('<div class="oc-mainHeader__navLinkWrapper"><span class="jss180 jss189"><a class="jss217 oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
+					$(".oc-mainHeader__linksWrapper").append('<div class="oc-mainHeader__navLinkWrapper"><span class="jss180 jss189"><a class="jss217 oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
 				}
 			}
 		});
