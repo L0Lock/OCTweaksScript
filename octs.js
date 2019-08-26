@@ -68,7 +68,7 @@
 		mutations.forEach(function(mutation) {
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
 				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("oc-mainHeader") ) {
-					$(".oc-mainHeader__linksWrapper").append('<div class="oc-mainHeader__navLinkWrapper"><span class="jss180 jss189"><a class="jss217 oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
+					$(".oc-mainHeader__linksWrapper").append('<div class="oc-mainHeader__navLinkWrapper"><span><a class="oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
 				}
 			}
 		});
