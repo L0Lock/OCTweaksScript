@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.23
+// @version			1.2.24
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -68,7 +68,17 @@
 		mutations.forEach(function(mutation) {
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
 				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("oc-mainHeader") ) {
-					$(".oc-mainHeader__linksWrapper").append('<div class="oc-mainHeader__navLinkWrapper"><span><a class="oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
+					$(".oc-mainHeader__linksWrapper").append('<div id="oc-mod-forumlink" class="oc-mainHeader__navLinkWrapper"><span><a class="oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
+					$("#oc-mod-forumlink").before('<span id="oc-mod-forumlink-hr"></span>');
+					$("#oc-mod-forumlink-hr").css({
+						"width": "1px",
+						"height": "32px",
+						"content": "",
+						"display": "block",
+						"margin-left": "24px",
+						"margin-right": "24px",
+						"background-color": "#d2d2d2"
+					});
 				}
 			}
 		});
