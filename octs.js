@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.24
+// @version			1.2.25
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -67,18 +67,12 @@
 	var observer = new MutationObserver( function(mutations) {
 		mutations.forEach(function(mutation) {
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
-				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("oc-mainHeader") ) {
-					$(".oc-mainHeader__linksWrapper").append('<div id="oc-mod-forumlink" class="oc-mainHeader__navLinkWrapper"><span><a class="oc-mainHeader__navLink '+classActiveBouton+'" href="/forum"><span>Forum</span></a></span></div>');
-					$("#oc-mod-forumlink").before('<span id="oc-mod-forumlink-hr"></span>');
-					$("#oc-mod-forumlink-hr").css({
-						"width": "1px",
-						"height": "32px",
-						"content": "",
-						"display": "block",
-						"margin-left": "24px",
-						"margin-right": "24px",
-						"background-color": "#d2d2d2"
-					});
+				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("MuiPaper-root") ) {
+                    let lienForum = $("#main-menu-navigation>div:first-child>div:first-child").clone();
+                    lienForum.find("span>a>span").text("Forum");
+                    lienForum.find("span>a").attr("href", "/forum");
+                    $("#main-menu-navigation>div:first-child").append( $("#main-menu-navigation>div:first-child>div:nth-child(4)").clone() );
+					$("#main-menu-navigation>div:first-child").append( lienForum );
 				}
 			}
 		});
