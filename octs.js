@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.25
+// @version			1.2.26
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -68,6 +68,7 @@
 		mutations.forEach(function(mutation) {
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
 				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("MuiPaper-root") ) {
+                    observer.disconnect();
                     let lienForum = $("#main-menu-navigation>div:first-child>div:first-child").clone();
                     lienForum.find("span>a>span").text("Forum");
                     lienForum.find("span>a").attr("href", "/forum");
