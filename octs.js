@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.26
+// @version			1.2.27
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -46,6 +46,9 @@
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
+	
+	// Déplacement "Ce sujet est fermé" au titre du sujet
+	$("section.comments").before($("div.banner"))
 
 	// Forcer affichage lien modération
 	$(".actions").show();
