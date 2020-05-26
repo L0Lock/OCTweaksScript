@@ -186,6 +186,11 @@
         "padding": "2px 4px",
         "white-space": "nowrap"
    });
+   
+   // Balise html (pour faire un scroll plus lisse lors du retour en haut/bas de la page)
+   $("html").css({
+       "scroll-behavior":"smooth"
+   });
 
 	// Suppression des pubs
 	$(".adviceBanner").remove();
