@@ -72,7 +72,7 @@
 			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
 				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("ais-InstantSearch__root") ) {
                   			observer.disconnect();
-                			let lienForum = $("#main-menu-navigation>div>last-child").clone();
+                			let lienForum = $("#main-menu-navigation>div>div:last-child").clone();
 			    		lienForum.find("span>a>span").text("Forum");
 			    		lienForum.find("span>a").attr("href", "/forum");
 			    		$("#main-menu-navigation>div").append( $("#main-menu-navigation>div>div:nth-child(5)").clone() );
