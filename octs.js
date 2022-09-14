@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.32
+// @version			1.2.33
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -187,6 +187,23 @@
        "scroll-behavior":"smooth"
    });
 
+   // Affichage  complet de la signature au click
+   const signatureClass = "section#mainContent div.comment .signature";
+   let showFullSignature = false;
+   $(signatureClass)
+		.css({"cursor": "pointer"})
+		.click(function() {
+			showFullSignature = !showFullSignature;
+			const initialProperty = (showFullSignature ? "initial" : "");
+			$(signatureClass).css({
+				"max-height": initialProperty,
+				"overflow": initialProperty,
+				"text-overflow": initialProperty,
+				"white-space": initialProperty
+			});
+			$("body.oldsdz " + signatureClass).css({ "max-height": initialProperty});
+		});
+	
 	// Suppression des pubs
 	$(".adviceBanner").remove();
 })(window.jQuery, document);
