@@ -187,6 +187,23 @@
        "scroll-behavior":"smooth"
    });
 
+   // Affichage  complet de la signature au click
+   const signatureClass = "section#mainContent div.comment .signature";
+   let showFullSignature = false;
+   $(signatureClass)
+		.css({"cursor": "pointer"})
+		.click(function() {
+			showFullSignature = !showFullSignature;
+			const initialProperty = (showFullSignature ? "initial" : "");
+			$(signatureClass).css({
+				"max-height": initialProperty,
+				"overflow": initialProperty,
+				"text-overflow": initialProperty,
+				"white-space": initialProperty
+			});
+			$("body.oldsdz " + signatureClass).css({ "max-height": initialProperty});
+		});
+	
 	// Suppression des pubs
 	$(".adviceBanner").remove();
 })(window.jQuery, document);
