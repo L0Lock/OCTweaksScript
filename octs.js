@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.33
+// @version			1.2.34
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -41,7 +41,7 @@
 
 	// Copie du fil d'ariane en bas du sujet
 	$(".breadcrumb").clone().insertAfter($("section.comments"));
-	
+
 	// Déplacement "Ce sujet est fermé" au titre du sujet
 	$("section.comments").before($("div.banner"))
 
@@ -50,12 +50,6 @@
 	$(".comments").mouseout( function(e) {
 		$(".actions").show();
 	});
-
-	// Retrait vieux CSS pour nouveau
-	$(".btn.btn-primary").addClass("button--primary");
-	$(".btn.btn-primary").removeClass("btn btn-primary");
-	$(".btn").addClass("button--secondary");
-	$(".btn").removeClass("btn");
 
 	// Ajout bouton forum entête
     let classActiveBouton = "";
@@ -181,7 +175,7 @@
         "padding": "2px 4px",
         "white-space": "nowrap"
    });
-   
+
    // Balise html (pour faire un scroll plus lisse lors du retour en haut/bas de la page)
    $("html").css({
        "scroll-behavior":"smooth"
@@ -203,7 +197,33 @@
 			});
 			$("body.oldsdz " + signatureClass).css({ "max-height": initialProperty});
 		});
-	
+
 	// Suppression des pubs
 	$(".adviceBanner").remove();
+
+	// Retrait vieux CSS pour nouveau
+	$(".btn.btn-primary").addClass("button--primary");
+	$(".btn.btn-primary").removeClass("btn btn-primary");
+	$(".btn").addClass("button--secondary");
+	$(".btn").removeClass("btn");
+    $(".button--primary").css({
+        "border":"none",
+        "background":"#7451eb",
+        "color":"#fff"
+    });
+    $(".button--secondary").css({
+        "border":"none",
+        "background":"#ececec",
+        "color":"#000"
+    });
+    $(".button--warning").css({
+        "border":"none",
+        "background":"#f52",
+        "color":"#fff"
+    });
+    $(".button--danger").css({
+        "border":"none",
+        "background":"#f00",
+        "color":"#fff"
+    });
 })(window.jQuery, document);
