@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name			OC Tweak Script
 // @author			-L0Lock-, benzouye, Lamecarlate, Lucatorze
-// @namespace   		https://github.com/L0Lock/OCTweaksScript
-// @description 		Améliore l'affichage des forums OpenClassrooms
-// @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
-// @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
+// @namespace   	https://github.com/L0Lock/OCTweaksScript
+// @description 	Améliore l'affichage des forums OpenClassrooms
+// @updateURL   	https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
+// @downloadURL 	https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
+// @icon         	https://www.google.com/s2/favicons?sz=64&domain=openclassrooms.com
 // @include			*openclassrooms.com/*
 // @version			1.2.35
 // @noframes
