@@ -6,7 +6,7 @@
 // @updateURL   	https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 	https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @icon         	https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/OCT_favicon.png
-// @include			*openclassrooms.com/*
+// @match			*openclassrooms.com/*
 // @version			1.2.35
 // @noframes
 // @grant			GM_getValue
