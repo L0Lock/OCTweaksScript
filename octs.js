@@ -6,7 +6,7 @@
 // @updateURL   		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @downloadURL 		https://raw.githubusercontent.com/L0Lock/OCTweaksScript/master/octs.js
 // @include			*openclassrooms.com/*
-// @version			1.2.34
+// @version			1.2.35
 // @noframes
 // @grant			GM_getValue
 // @grant			GM_setValue
@@ -51,26 +51,66 @@
 		$(".actions").show();
 	});
 
-	// Ajout bouton forum entête
-    let classActiveBouton = "";
-	if( window.location.pathname.indexOf('/forum/') !== -1 ) {
-		classActiveBouton = "oc-mainHeader__navLinkActive";
-	};
-	var observer = new MutationObserver( function(mutations) {
-		mutations.forEach(function(mutation) {
-			if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
-				if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("ais-InstantSearch__root") ) {
-                  			observer.disconnect();
-                			let lienForum = $("#main-menu-navigation>div>div:last-child").clone();
-			    		lienForum.find("span>a>span").text("Forum");
-			    		lienForum.find("span>a").attr("href", "/forum");
-			    		$("#main-menu-navigation>div").append( $("#main-menu-navigation>div>div:nth-child(5)").clone() );
-					$("#main-menu-navigation>div").append( lienForum );
-				}
-			}
-		});
-	});
-	observer.observe( document.body, { childList: true, subtree: true } );
+
+	// fonction d'insertion du lien forum dans l'entête
+	function injectForumLink() {
+        // Création du lien
+        var forumLink = document.createElement('a');
+        forumLink.href = 'https://openclassrooms.com/forum';
+        forumLink.textContent = 'Forum';
+
+        // CSS
+        forumLink.style.margin = '0px';
+        forumLink.style.fontFamily = 'Inter, Inter-Regular';
+        forumLink.style.fontSize = '1rem';
+        forumLink.style.letterSpacing = '0px';
+        forumLink.style.lineHeight = '26px';
+        forumLink.style.fontWeight = '400';
+        forumLink.style.maxInlineSize = 'initial';
+        forumLink.style.display = 'block';
+        forumLink.style.textDecoration = 'none';
+        forumLink.style.paddingLeft = '20px';
+        forumLink.style.paddingRight = '20px';
+        forumLink.style.borderRight = '1px solid #dad9dc';
+        forumLink.style.height = '2rem';
+
+        // var mainHeaderLogo:
+        var mainHeaderLogo = document.getElementById('mainHeaderLogo');
+
+        // recherche de mainHeaderLogo et injection du lien
+        if (mainHeaderLogo) {
+            var linkContainer = document.createElement('div');
+            linkContainer.appendChild(forumLink);
+            mainHeaderLogo.parentNode.insertBefore(linkContainer, mainHeaderLogo.nextSibling);
+        } else {
+            // si mainHeaderLogo absent, réessayer 1s plus tard
+            setTimeout(injectForumLink, 1000);
+        }
+    }
+
+    // Déclanche injection du lien
+    injectForumLink();
+
+	// Ajout bouton forum entête (ancienne méthode cassée)
+    // let classActiveBouton = "";
+	// if( window.location.pathname.indexOf('/forum/') !== -1 ) {
+	// 	classActiveBouton = "oc-mainHeader__navLinkActive";
+	// };
+	// var observer = new MutationObserver( function(mutations) {
+	// 	mutations.forEach(function(mutation) {
+	// 		if( mutation.addedNodes && mutation.addedNodes.length > 0 ) {
+	// 			if( mutation.addedNodes[0].classList && mutation.addedNodes[0].classList.contains("ais-InstantSearch__root") ) {
+    //               			observer.disconnect();
+    //             			let lienForum = $("#main-menu-navigation>div>div:last-child").clone();
+	// 		    		lienForum.find("span>a>span").text("Forum");
+	// 		    		lienForum.find("span>a").attr("href", "/forum");
+	// 		    		$("#main-menu-navigation>div").append( $("#main-menu-navigation>div>div:nth-child(5)").clone() );
+	// 				$("#main-menu-navigation>div").append( lienForum );
+	// 			}
+	// 		}
+	// 	});
+	// });
+	// observer.observe( document.body, { childList: true, subtree: true } );
 
 	// Bouton afficher/masquer les épinglés
 	if( GM_getValue( "showPostIt" ) === undefined ) GM_setValue( "showPostIt" , true );
